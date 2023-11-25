@@ -17,10 +17,12 @@ HDRS = $(wildcard $(SRC)*.h)
 .PHONY: all clean
 
 $(BIN)$(TARGET): $(OBJS)
+	@mkdir -p $(BIN)
 	$(CC) $^ -o $@ $(INCLUDE) $(LINK) $(LIB)
 
 $(OBJ)%.o: $(SRC)%.cpp
-	$(CC) $(CFLAGS) $(SRC) -c $< -o $@ $(INCLUDE) $(LINK) $(LIB)
+	@mkdir -p $(OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE) $(LINK) $(LIB)
 
 run: $(BIN)$(TARGET)
 	@$(BIN)$(TARGET)

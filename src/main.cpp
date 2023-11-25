@@ -1,7 +1,7 @@
 #include <iostream>
 #include "util.h"
 #include "parser.h"
-#define VERSION "v0.0.1"
+#define VERSION "v0.0.6"
 
 uint32_t value = 0;
 uint32_t pref_base = 10;

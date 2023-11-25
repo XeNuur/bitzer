@@ -1,13 +1,15 @@
 #include "util.h"
 #include <string>
+#include <cctype>
 
 char i2c(uint32_t num) {
    if (num >= 0 && num <= 9)
       return (char)(num + '0');
-   return (char)(num - 10 + 'A');
+   return std::toupper((char)(num - 10 + 'A'));
 }
 
 uint32_t c2i(char c) {
+   c = std::toupper(c);
    if (c >= '0' && c <= '9')
       return (int)c - '0';
    return (int)c - 'A' + 10;
