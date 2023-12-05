@@ -59,9 +59,12 @@ bool decoding_with_ending(uint32_t& num, std::string input) {
       status = true;
       break;
    }
-   
-   if(!status) 
-      num = std::stoi(input);
+   if(status) 
+      return status;
+
+   try { num = std::stoi(input); }
+   catch(...) { status = false; }
+
    return status;
 }
 
