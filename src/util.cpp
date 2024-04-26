@@ -2,20 +2,20 @@
 #include <string>
 #include <cctype>
 
-char i2c(uint32_t num) {
+char i2c(uint64_t num) {
    if (num >= 0 && num <= 9)
       return (char)(num + '0');
    return std::toupper((char)(num - 10 + 'A'));
 }
 
-uint32_t c2i(char c) {
+uint64_t c2i(char c) {
    c = std::toupper(c);
    if (c >= '0' && c <= '9')
       return (int)c - '0';
    return (int)c - 'A' + 10;
 }
 
-std::string i2strnbase(uint32_t value, uint32_t base) {
+std::string i2strnbase(uint64_t value, uint64_t base) {
    std::string out;
    for(;;) {
       auto val = value % base;
@@ -28,7 +28,7 @@ std::string i2strnbase(uint32_t value, uint32_t base) {
    return out;
 }
 
-int strnbase2i(std::string value, uint32_t base) {
+int strnbase2i(std::string value, uint64_t base) {
    int out = 0;
    for(char& c: value) {
       auto val = c2i(c);
