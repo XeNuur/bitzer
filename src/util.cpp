@@ -41,7 +41,7 @@ int strnbase2i(std::string value, uint32_t base) {
    return out;
 }
 
-bool decoding_with_ending(uint32_t& num, std::string input) { 
+bool decoding_with_ending(uint64_t& num, std::string input) { 
    if(input.empty())
       return false;
    

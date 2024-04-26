@@ -15,5 +15,5 @@ const std::vector<std::pair<char, uint32_t>> g_decoding_scheme = {
 std::string i2strnbase(uint32_t value, uint32_t base);
 int strnbase2i(std::string value, uint32_t base);
 
-bool decoding_with_ending(uint32_t& num, std::string input);
+bool decoding_with_ending(uint64_t& num, std::string input);
 

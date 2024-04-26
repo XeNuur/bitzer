@@ -1,15 +1,15 @@
 #include <iostream>
 #include "util.h"
 #include "parser.h"
-#define VERSION "v0.0.6"
+#define VERSION "v0.0.7"
 
-uint32_t value = 0;
-uint32_t pref_base = 10;
+uint64_t value = 0;
+uint64_t pref_base = 10;
 
 bool handle_inst(parser::instr _inst) {
    //std::cout << "INST: " << _inst.first << " ARG: " << _inst.second <<std::endl;
    const auto instr = _inst.first;
-   uint32_t arg = 0;
+   uint64_t arg = 0;
    decoding_with_ending(arg, _inst.second);
 
    bool retsig = true;
@@ -24,7 +24,7 @@ bool handle_inst(parser::instr _inst) {
          value = value >> arg;
          break;
       case parser::ARITHMETIC_SHIFT_RIGHT:
-         value = (int32_t)value >> (int32_t)arg;
+         value = (int64_t)value >> (int64_t)arg;
          break;
       case parser::NOT:
          value = ~value;
